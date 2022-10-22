@@ -16,19 +16,21 @@ export function TaskList() {
 
   function handleCreateNewTask() {
     // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
-    let task = [
-        {
-          id: 1234,
-          title: 'Finalizar Desafio 1',
-          isComplete: false,
-        }
-      ];    
 
-    setTasks(task);
+    if(!newTaskTitle) return;
+
+    const newTask = {
+      id: Math.random(),
+      title: newTaskTitle,
+      isComplete: false,
+    }
+
+    setTasks([...tasks, newTask]);
   }
 
   function handleToggleTaskCompletion(id: number) {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
+    
   }
 
   function handleRemoveTask(id: number) {
